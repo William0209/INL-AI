@@ -103,3 +103,27 @@
 .loading-text.loading {
   display: block;
 }
+
+.image {
+  position: relative; /* Position relative for absolute positioning of the icon */
+}
+
+.download-icon {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  display: none; /* Hide by default */
+  color: white; /* Change color as needed */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Optional: add a background for better visibility */
+  border-radius: 5px; /* Optional: round the corners */
+  padding: 5px; /* Optional: add some padding */
+}
+
+.image:hover .download-icon {
+  display: block; /* Show on hover */
+}

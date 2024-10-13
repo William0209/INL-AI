@@ -1,15 +1,22 @@
-import React, { useRef, useState } from "react";
+import React, {
+  useRef,
+  useState,
+} from "react";
 import axios from "axios";
 import "./ImageGenerator.css";
 import defaultImage from "../assets/default_image.svg";
+import { FaDownload } from "react-icons/fa";
 
 const ImageGenerator = () => {
-  const [image_url, setImage_url] = useState(defaultImage);
+  const [image_url, setImage_url] =
+    useState(defaultImage);
   let inputRef = useRef(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] =
+    useState(false);
 
   const generateImage = async () => {
-    const prompt = inputRef.current.value;
+    const prompt =
+      inputRef.current.value;
     if (!prompt) return;
 
     setLoading(true);
@@ -24,16 +31,21 @@ const ImageGenerator = () => {
         },
         {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type":
+              "application/json",
             Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`, // Use API key from .env
           },
         }
       );
 
-      const imageUrl = response.data.data[0].url;
+      const imageUrl =
+        response.data.data[0].url;
       setImage_url(imageUrl);
     } catch (error) {
-      console.error("Error generating image:", error);
+      console.error(
+        "Error generating image:",
+        error
+      );
     }
     setLoading(false);
   };
@@ -45,17 +57,32 @@ const ImageGenerator = () => {
       </div>
       <div className="img-loading">
         <div className="image">
-          <img src={image_url} alt="Generated" />
+          <img
+            src={image_url}
+            alt="Generated"
+          />
+          <a
+            href={image_url}
+            download
+            className="download-icon"
+          >
+            <FaDownload />
+            {/* Use the icon component here */}
+          </a>
         </div>
         <div className="loading">
           <div
             className={
-              loading ? "loading-bar-full" : "loading-bar"
+              loading
+                ? "loading-bar-full"
+                : "loading-bar"
             }
           ></div>
           <div
             className={
-              loading ? "loading-text" : "display-none"
+              loading
+                ? "loading-text"
+                : "display-none"
             }
           >
             Loading...
