@@ -110,8 +110,8 @@
 
 .download-icon {
   position: absolute;
-  bottom: 13px; /* Adjust as needed */
-  right: 13px; /* Adjust as needed */
+  bottom: 22px; /* Adjust as needed */
+  right: 22px; /* Adjust as needed */
   display: none; /* Hide by default */
   color: white; /* Change color as needed */
   background: rgba(

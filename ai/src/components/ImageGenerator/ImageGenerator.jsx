@@ -14,6 +14,8 @@ const ImageGenerator = () => {
   let inputRef = useRef(null);
   const [loading, setLoading] =
     useState(false);
+  const [isHovered, setIsHovered] =
+    useState(false);
 
   const generateImage = async () => {
     const prompt =
@@ -62,8 +64,12 @@ const ImageGenerator = () => {
             src={image_url}
             alt="Generated"
             animate={{
-              opacity: 1,
-              scale: 1,
+              opacity: isHovered
+                ? 0.8
+                : 1,
+              scale: isHovered
+                ? 0.95
+                : 1,
             }}
             initial={{
               opacity: 0,
@@ -80,12 +86,23 @@ const ImageGenerator = () => {
               },
               delay: 0.5,
             }}
-            whileHover={{ scale: 1.05 }}
+            onMouseEnter={() =>
+              setIsHovered(true)
+            }
+            onMouseLeave={() =>
+              setIsHovered(false)
+            }
           />
           <a
             href={image_url}
             download
             className="download-icon"
+            onMouseEnter={() =>
+              setIsHovered(true)
+            }
+            onMouseLeave={() =>
+              setIsHovered(false)
+            }
           >
             <motion.div
               whileHover={{
