@@ -6,6 +6,7 @@ import axios from "axios";
 import "./ImageGenerator.css";
 import defaultImage from "../assets/default_image.svg";
 import { FaDownload } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const ImageGenerator = () => {
   const [image_url, setImage_url] =
@@ -57,17 +58,50 @@ const ImageGenerator = () => {
       </div>
       <div className="img-loading">
         <div className="image">
-          <img
+          <motion.img
             src={image_url}
             alt="Generated"
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            initial={{
+              opacity: 0,
+              scale: 0.8,
+            }}
+            transition={{
+              opacity: {
+                duration: 0.8,
+                ease: "easeInOut",
+              },
+              scale: {
+                duration: 0.8,
+                ease: "easeInOut",
+              },
+              delay: 0.5,
+            }}
+            whileHover={{ scale: 1.05 }}
           />
           <a
             href={image_url}
             download
             className="download-icon"
           >
-            <FaDownload />
-            {/* Use the icon component here */}
+            <motion.div
+              whileHover={{
+                rotate: 360,
+                scale: 1.2,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut",
+              }}
+              style={{
+                display: "inline-block",
+              }}
+            >
+              <FaDownload />
+            </motion.div>
           </a>
         </div>
         <div className="loading">
