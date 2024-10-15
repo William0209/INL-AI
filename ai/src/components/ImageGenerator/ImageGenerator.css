@@ -64,7 +64,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  width: 250px;
   height: 85px;
   font-size: 20px;
   border-radius: 50px;
@@ -72,7 +72,7 @@
   color: rgba(240, 248, 255, 0.795);
   letter-spacing: 2px;
   cursor: pointer;
-  margin-right: -6px;
+  margin-right: -7px;
 }
 
 .loading-bar {
@@ -126,4 +126,11 @@
 
 .image:hover .download-icon {
   display: block; /* Show on hover */
+}
+
+.icon {
+  color: white; /* Change the icon color to white */
+  cursor: pointer; /* Change the cursor to pointer on hover */
+  display: flex; /* Ensure the icon is displayed as a flex item */
+  align-items: center; /* Center the icon vertically */
 }
