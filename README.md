@@ -49,13 +49,14 @@ För att köra projektet lokalt, följ dessa steg:
 
    ```
    git clone <repository-url>
-   cd ai
+   npm i   -- först i roten
    ```
 
 2. Installera beroenden:
 
    ```
-   npm install
+   cd ai
+   npm install  -- sen i react foldern
    ```
 
 3. Starta applikationen:
